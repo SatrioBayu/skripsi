@@ -1,0 +1,14 @@
+.side-img{
+    object-fit: cover;
+    max-width: 13rem;
+}
+.card-border{
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid black;
+    border-bottom:  1px solid black;
+    border-radius: 0;
+}
+a{
+    color: black;
+}
