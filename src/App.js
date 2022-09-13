@@ -1,6 +1,7 @@
 import Artikel from "./components/Artikel";
 import Carousel from "./components/Carousel";
 import Navbar from "./components/Navbar";
+import PengajuanSuratHome from "./components/PengajuanSuratHome";
 import Pengumuman from "./components/Pengumuman";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Carousel />
       <Pengumuman />
       <Artikel />
+      <PengajuanSuratHome />
     </div>
   );
 }
