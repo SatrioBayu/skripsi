@@ -7,35 +7,35 @@ const ListArtikel = () => {
   return (
     <div className="main">
       <Navbar />
-      <div class="container my-5">
+      <div class="container-fluid my-5">
         <h2 className="text-center">Daftar Artikel</h2>
         <p className="text-center">Anda dapat melihat daftar artikel</p>
-        <div class="row mt-2 mb-5 g-5">
-          <div class="col-md-4">
+        <div class="row mt-2 mb-5 gy-5">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
-          <div class="col-md-4">
+          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
             <CardArtikel />
           </div>
         </div>

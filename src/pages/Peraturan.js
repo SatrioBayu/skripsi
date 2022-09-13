@@ -16,7 +16,7 @@ const Peraturan = () => {
 
         <div id="peraturan" className="mb-5">
           <h2 className="text-center my-5">Peraturan RT 04 RW 12 Kelurahan Tulusrejo</h2>
-          <ol>
+          <ol className={`${styles["no-padding"]}`}>
             <li className="fs-6">
               <p className="fs-6">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic in impedit consequatur modi perferendis sint. Beatae nulla, repudiandae necessitatibus laborum, quo, non nemo excepturi
