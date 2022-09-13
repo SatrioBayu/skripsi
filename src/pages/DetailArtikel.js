@@ -8,7 +8,7 @@ const DetailArtikel = () => {
   };
 
   return (
-    <>
+    <div className="main">
       <Navbar />
       <div className="container mt-5">
         <ArrowBack handleBack={handleBack} />
@@ -34,7 +34,7 @@ const DetailArtikel = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

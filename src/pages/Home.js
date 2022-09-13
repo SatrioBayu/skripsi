@@ -7,7 +7,7 @@ import Pengumuman from "../components/Pengumuman";
 
 const Home = () => {
   return (
-    <div>
+    <div className="main">
       <Navbar />
       <Carousel />
       <Pengumuman />

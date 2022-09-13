@@ -31,7 +31,7 @@ const Navbar = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link active" href="/suratsaya">
                 Surat Saya
               </a>
             </li>

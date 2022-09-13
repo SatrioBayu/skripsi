@@ -5,11 +5,11 @@ import Pagination from "../components/Pagination";
 
 const ListPengumuman = () => {
   return (
-    <div>
+    <div className="main">
       <Navbar />
       <div className="container my-5">
         <h2 className="text-center">Daftar Pengumuman</h2>
-        <p className="text-center fs-5">Anda dapat melihat daftar pengumuman</p>
+        <p className="text-center">Anda dapat melihat daftar pengumuman</p>
 
         <HorizontalCard />
         <HorizontalCard />

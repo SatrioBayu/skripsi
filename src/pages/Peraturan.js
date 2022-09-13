@@ -9,7 +9,7 @@ const Peraturan = () => {
   };
 
   return (
-    <div>
+    <div className="main">
       <Navbar />
       <div class="container mt-5">
         <ArrowBack handleBack={handleBack} />
