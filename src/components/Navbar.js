@@ -2,9 +2,9 @@ import styles from "../assets/css/Navbar.module.css";
 
 const Navbar = () => {
   return (
-    <nav class={`navbar navbar-expand-lg ${styles["nav-bg"]} ${styles["nav-color"]}`}>
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+    <nav class={`navbar navbar-expand-md ${styles["nav-bg"]} ${styles["nav-color"]}`}>
+      <div class="container">
+        <a class={`navbar-brand ${styles["no-padding"]}`} href="#">
           Web RT Tulusrejo
         </a>
         <button
@@ -19,7 +19,7 @@ const Navbar = () => {
           <span class={`navbar-toggler-icon ${styles["nav-burger"]}`}></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
                 Home
@@ -41,15 +41,24 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-
-          {/* <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> */}
           <div className="d-flex">
-            <a href="#">Hi, Bayu</a>
+            <div className={`dropdown ${styles["nav-med"]}`}>
+              <a href="#" data-bs-toggle="dropdown">
+                Hi, Bayu
+              </a>
+              <ul class={`dropdown-menu ${styles["dropdown-menu"]}`}>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Informasi Akun
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
