@@ -1,8 +1,6 @@
+import ArrowBack from "../components/ArrowBack";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import styles from "../assets/css/DetailPengumuman.module.css";
 
 const DetailPengumuman = () => {
   const handleBack = () => {
@@ -13,14 +11,8 @@ const DetailPengumuman = () => {
     <>
       <Navbar />
       <div className="container mt-5">
-        <div className="mb-3">
-          <a href="#" onClick={handleBack} className={`${styles["biru"]}`}>
-            <FontAwesomeIcon icon={faArrowLeft} size="lg" />
-            &nbsp; &nbsp; Kembali
-          </a>
-        </div>
-
-        <div id="isi" className="mb-5">
+        <ArrowBack handleBack={handleBack} />
+        <div id="pengumuman" className="mb-5">
           <h2>Judul Pengumuman</h2>
           <img
             src="https://img.freepik.com/premium-vector/loudspeaker-megaphone-bullhorn-yellow-background-empty-banner-template-promotion-design_578506-256.jpg?w=2000"
