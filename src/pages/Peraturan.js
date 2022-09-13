@@ -15,7 +15,7 @@ const Peraturan = () => {
         <ArrowBack handleBack={handleBack} />
 
         <div id="peraturan" className="mb-5">
-          <h2 className="text-center my-4">Peraturan RT 04 RW 12 Kelurahan Tulusrejo</h2>
+          <h2 className="text-center my-5">Peraturan RT 04 RW 12 Kelurahan Tulusrejo</h2>
           <ol>
             <li className="fs-6">
               <p className="fs-6">
