@@ -1,5 +1,5 @@
-import Card from "./Card";
 import ButtonLainnya from "./ButtonLainnya";
+import CardPengumuman from "./CardPengumuman";
 
 const Pengumuman = () => {
   return (
@@ -10,13 +10,13 @@ const Pengumuman = () => {
       </div>
       <div class="row g-4">
         <div class="d-flex justify-content-center col-sm-6 col-lg-4">
-          <Card />
+          <CardPengumuman />
         </div>
         <div class="d-flex justify-content-center col-sm-6 col-lg-4">
-          <Card />
+          <CardPengumuman />
         </div>
         <div class="d-flex justify-content-center col-sm-6 col-lg-4">
-          <Card />
+          <CardPengumuman />
         </div>
       </div>
       <ButtonLainnya text="Pengumuman Lainnya" />
