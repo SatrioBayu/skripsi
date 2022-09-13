@@ -19,7 +19,7 @@ const Navbar = () => {
           <span class={`navbar-toggler-icon ${styles["nav-burger"]}`}></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-start">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
                 Home
