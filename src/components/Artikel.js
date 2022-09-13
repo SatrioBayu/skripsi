@@ -19,7 +19,7 @@ const Artikel = () => {
           <CardArtikel />
         </div>
       </div>
-      <ButtonLainnya text="Artikel Lainnya" />
+      <ButtonLainnya text="Artikel Lainnya" destination="artikel" />
     </div>
   );
 };

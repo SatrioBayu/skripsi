@@ -19,7 +19,7 @@ const Pengumuman = () => {
           <CardPengumuman />
         </div>
       </div>
-      <ButtonLainnya text="Pengumuman Lainnya" />
+      <ButtonLainnya text="Pengumuman Lainnya" destination="pengumuman" />
     </div>
   );
 };

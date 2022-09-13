@@ -4,6 +4,7 @@ import DetailPengumuman from "./pages/DetailPengumuman";
 import DetailArtikel from "./pages/DetailArtikel";
 import Peraturan from "./pages/Peraturan";
 import ListPengumuman from "./pages/ListPengumuman";
+import ListArtikel from "./pages/ListArtikel";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/artikel/1" element={<DetailArtikel />} />
           <Route path="/peraturan" element={<Peraturan />} />
           <Route path="/pengumuman" element={<ListPengumuman />} />
+          <Route path="/artikel" element={<ListArtikel />} />
         </Routes>
       </BrowserRouter>
     </div>
