@@ -7,14 +7,14 @@ import Pengumuman from "../components/Pengumuman";
 
 const Home = () => {
   return (
-    <>
+    <div>
       <Navbar />
       <Carousel />
       <Pengumuman />
       <Artikel />
       <PengajuanSuratHome />
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav class={`navbar navbar-expand-md ${styles["nav-bg"]} ${styles["nav-color"]}`}>
       <div class="container">
-        <a class={`navbar-brand ${styles["no-padding"]}`} href="#">
+        <a class={`navbar-brand ${styles["no-padding"]}`} href="/">
           Web RT Tulusrejo
         </a>
         <button
@@ -21,7 +21,7 @@ const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+              <a class="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>

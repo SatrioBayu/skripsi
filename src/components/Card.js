@@ -1,4 +1,5 @@
 import styles from "../assets/css/Card.module.css";
+import { NavLink } from "react-router-dom";
 
 const Card = () => {
   return (
@@ -9,13 +10,13 @@ const Card = () => {
         alt="..."
       />
       <div class="card-body">
-        <a href="#">
+        <NavLink to="/pengumuman/1">
           <h5 class={`card-title ${styles["card-color"]} ${styles["card-title"]}`}>Pengumuman 1</h5>
-        </a>
+        </NavLink>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class={`${styles["card-color"]} ${styles["card-footer"]}`}>
-          Baca Selengkapnya
-        </a>
+        <NavLink to="/pengumuman/1">
+          <p class={`${styles["card-color"]} ${styles["card-footer"]}`}>Baca Selengkapnya</p>
+        </NavLink>
       </div>
     </div>
   );
