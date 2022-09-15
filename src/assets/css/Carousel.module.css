@@ -1,3 +1,7 @@
 .img-height{
+    max-height: 30rem;
+}
+.img-height img{
     object-fit: cover;
+    height: 30rem;
 }

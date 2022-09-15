@@ -81,9 +81,13 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              <a href="/login" className="nav-link active">
-                Login
-              </a>
+              <ul className="navbar-nav">
+                <li className="navbar-item">
+                  <a href="/login" className="nav-link active">
+                    Login
+                  </a>
+                </li>
+              </ul>
             )}
           </div>
         </div>
