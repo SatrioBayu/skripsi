@@ -69,7 +69,7 @@ const Navbar = () => {
                 </a>
                 <ul class={`dropdown-menu ${styles["dropdown-menu"]}`}>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="/profile">
                       Informasi Akun
                     </a>
                   </li>
