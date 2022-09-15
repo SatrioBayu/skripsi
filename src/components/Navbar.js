@@ -1,6 +1,26 @@
+import { useEffect, useState } from "react";
 import styles from "../assets/css/Navbar.module.css";
 
 const Navbar = () => {
+  const [nama, setNama] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token") ? true : false);
+
+  const fetchData = () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    setNama(token.username);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchData();
+    }
+  }, []);
+
   return (
     <nav class={`navbar navbar-expand-md ${styles["nav-bg"]} ${styles["nav-color"]}`}>
       <div class="container">
@@ -42,23 +62,29 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <div className={`dropdown ${styles["nav-med"]}`}>
-              <a href="#" data-bs-toggle="dropdown">
-                Hi, Bayu
+            {isLoggedIn ? (
+              <div className={`dropdown ${styles["nav-med"]}`}>
+                <a href="#" data-bs-toggle="dropdown">
+                  Hi, {nama}
+                </a>
+                <ul class={`dropdown-menu ${styles["dropdown-menu"]}`}>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Informasi Akun
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={handleLogout} class="dropdown-item" href="#">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <a href="/login" className="nav-link active">
+                Login
               </a>
-              <ul class={`dropdown-menu ${styles["dropdown-menu"]}`}>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    Informasi Akun
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    Logout
-                  </a>
-                </li>
-              </ul>
-            </div>
+            )}
           </div>
         </div>
       </div>

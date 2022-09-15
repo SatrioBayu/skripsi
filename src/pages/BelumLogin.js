@@ -18,7 +18,7 @@ const BelumLogin = () => {
         <p className="text-center">
           Jika telah memiliki akun bisa melakukan login melalui navbar diatas atau lewat{" "}
           <span>
-            <a href="#" className={`${styles["link"]}`}>
+            <a href="/login" className={`${styles["link"]}`}>
               sini
             </a>
           </span>

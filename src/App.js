@@ -8,6 +8,8 @@ import ListArtikel from "./pages/ListArtikel";
 import SuratSaya from "./pages/SuratSaya";
 import BelumLogin from "./pages/BelumLogin";
 import PengajuanSurat from "./pages/PengajuanSurat";
+import Protected from "./components/Protected";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -22,7 +24,15 @@ function App() {
           <Route path="/artikel" element={<ListArtikel />} />
           <Route path="/suratsaya" element={<SuratSaya />} />
           <Route path="/belumLogin" element={<BelumLogin />} />
-          <Route path="/ajukanSurat" element={<PengajuanSurat />} />
+          <Route
+            path="/ajukanSurat"
+            element={
+              <Protected>
+                <PengajuanSurat />
+              </Protected>
+            }
+          />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
