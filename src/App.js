@@ -6,6 +6,7 @@ import Peraturan from "./pages/Peraturan";
 import ListPengumuman from "./pages/ListPengumuman";
 import ListArtikel from "./pages/ListArtikel";
 import SuratSaya from "./pages/SuratSaya";
+import BelumLogin from "./pages/BelumLogin";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/pengumuman" element={<ListPengumuman />} />
           <Route path="/artikel" element={<ListArtikel />} />
           <Route path="/suratsaya" element={<SuratSaya />} />
+          <Route path="/belumLogin" element={<BelumLogin />} />
         </Routes>
       </BrowserRouter>
     </div>
