@@ -12,9 +12,9 @@ const PengajuanSurat = () => {
   const [jenisSurat, setJenisSurat] = useState("Surat Keterangan Domisili");
 
   return (
-    <div class="main">
+    <div>
       <Navbar />
-      <div class="container mt-5">
+      <div class="container main mt-5">
         <h2 className="text-center">Pengajuan Surat Online</h2>
         <p className="text-center">Ajukan pembuatan surat administrasi secara online disini</p>
         <div class="row">
