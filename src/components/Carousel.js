@@ -1,13 +1,18 @@
 import styles from "../assets/css/Carousel.module.css";
+import ButtonAjukanSurat from "./ButtonAjukanSurat";
 
 const Carousel = () => {
   return (
     <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class={`carousel-inner ${styles["img-height"]}`}>
         <div class={`carousel-item active`}>
-          <a href="/ajukanSurat">
-            <img src="https://img.freepik.com/free-vector/online-document-concept-illustration_114360-5453.jpg?w=2000" class="d-block w-100" alt="Ajukan Surat" />
-          </a>
+          <div className={`${styles["wrapper"]} row align-items-center`}>
+            <div class="col d-flex flex-column align-items-center">
+              <h3 className={`text-center`}>Ajukan Surat Online</h3>
+              <p className={`text-center ${styles["hide"]}`}>Lakukan pengajuan surat RT secara online melalui link berikut</p>
+              <ButtonAjukanSurat text="Ajukan Surat Online" />
+            </div>
+          </div>
         </div>
         <div class={`carousel-item`}>
           <img

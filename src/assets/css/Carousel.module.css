@@ -1,5 +1,12 @@
 .img-height img{
-    max-height: 30rem;
+    max-height: 25rem;
+    object-fit: cover;
+    height: 25rem;
+}
+.wrapper{
+    height: 25rem;
+    max-height: 25rem;
+    background-color: #F2F2F2;
 }
 
 @media (max-width: 768px) {
@@ -7,4 +14,18 @@
         max-height: 10rem;
         object-fit: cover;
     }
+    .wrapper {
+        max-height: 10rem;
+    }
+}
+@media (max-width: 576px) {
+    .hide{
+        display: none;
+    }
+}
+
+.bg-caption{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid transparent
 }

@@ -8,9 +8,9 @@ const Biodata = (props) => {
       </div>
       <div class="col-sm-9">
         {props.label === "Nama" ? (
-          <input className="form-control" type="text" disabled value={JSON.parse(localStorage.getItem("token")).username} />
+          <input className="form-control" aria-label="nama" type="text" disabled value={JSON.parse(localStorage.getItem("token")).username} />
         ) : (
-          <input className="form-control" type="text" disabled value={props.value} />
+          <input className="form-control" aria-label="biodata" type="text" disabled value={props.value} />
         )}
       </div>
     </div>

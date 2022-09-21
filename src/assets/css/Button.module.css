@@ -16,3 +16,9 @@
 .padding{
     padding: 10px;
 }
+
+@media (max-width: 576px){
+    .coba{
+        padding: 5px;
+    }
+}
