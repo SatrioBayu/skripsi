@@ -10,8 +10,15 @@
 .no-margin{
     margin: 0 !important;
 }
-@media only screen and (max-width:768px) {
+@media (max-width:768px) {
     .dummy{
         display: none;
     }
+}
+
+.bg-carousel {
+    background-color: white;
+}
+.text-color_carousel{
+    color: black;
 }

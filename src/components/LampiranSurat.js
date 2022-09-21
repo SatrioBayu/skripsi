@@ -7,10 +7,14 @@ const LampiranSurat = () => {
         <h6 class="text-center fw-bold">Template Surat</h6>
         <ul className={`${styles["padding-left"]} ${styles["blue"]}`}>
           <li className={`${styles["small"]}`}>
-            <a href="#">Surat Domisili</a>
+            <a href="/surat keterangan domisili.doc" target="_blank" download>
+              Surat Domisili
+            </a>
           </li>
           <li className={`${styles["small"]}`}>
-            <a href="#">Surat Persetujuan Tetangga</a>
+            <a href="/Surat Pernyataan Persetujuan Tetangga.docx" target="_blank" download>
+              Surat Persetujuan Tetangga
+            </a>
           </li>
         </ul>
       </div>

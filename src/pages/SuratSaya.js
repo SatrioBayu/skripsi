@@ -29,7 +29,7 @@ const SuratSaya = () => {
               <tr>
                 <td colSpan="10">Surat Pengantar Menikah</td>
                 <td className="text-center">
-                  <a className={`${styles["link"]}`} href="">
+                  <a className={`${styles["link"]}`} href="/Surat Pengantar Nikah.docx" target="_blank" download="Coba.docx">
                     Disetujui
                   </a>
                 </td>
