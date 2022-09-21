@@ -30,11 +30,11 @@ const FormSuratUmum = (props) => {
       <div class="form-input">
         <div class="group mb-4">
           <h5>Alamat</h5>
-          <input required type="text" onChange={(e) => setAlamat(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-describedby="emailHelp" />
+          <input required type="text" onChange={(e) => setAlamat(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-label="Alamat" />
         </div>
         <div class="group mb-4">
           <h5>Keterangan</h5>
-          <textarea onChange={(e) => setKeterangan(e.target.value)} className="form-control" placeholder="Tuliskan keterangan anda disini" cols="30" rows="10"></textarea>
+          <textarea onChange={(e) => setKeterangan(e.target.value)} className="form-control" aria-label="Keterangan" placeholder="Tuliskan keterangan anda disini" cols="30" rows="10"></textarea>
         </div>
         <div class="group mb-4">
           <input type="submit" className="btn btn-success" value="Ajukan Surat" />

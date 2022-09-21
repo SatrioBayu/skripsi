@@ -1,7 +1,10 @@
-.img-height{
+.img-height img{
     max-height: 30rem;
 }
-.img-height img{
-    object-fit: cover;
-    height: 30rem;
+
+@media (max-width: 768px) {
+    .img-height img {
+        max-height: 10rem;
+        object-fit: cover;
+    }
 }

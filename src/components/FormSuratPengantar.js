@@ -31,11 +31,11 @@ const FormSuratPengantar = (props) => {
       <div class="form-input">
         <div class="group mb-4">
           <h5>Alamat Ayah</h5>
-          <input required type="text" onChange={(e) => setAlamatAyah(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-describedby="emailHelp" />
+          <input required type="text" onChange={(e) => setAlamatAyah(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-label="Alamat Ayah" />
         </div>
         <div class="group mb-4">
           <h5>Alamat Ibu</h5>
-          <input required type="text" onChange={(e) => setAlamatIbu(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-describedby="emailHelp" />
+          <input required type="text" onChange={(e) => setAlamatIbu(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-label="Alamat Ibu" />
         </div>
         <div class="group mb-4">
           <input type="submit" className="btn btn-success" value="Ajukan Surat" />

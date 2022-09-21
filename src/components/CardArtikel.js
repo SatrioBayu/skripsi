@@ -7,7 +7,7 @@ const CardArtikel = () => {
       <img
         src="https://media.istockphoto.com/vectors/important-announcement-and-megaphone-speech-bubble-icon-vector-design-vector-id1250478098?k=20&m=1250478098&s=170667a&w=0&h=yLXX3dVBrQQhVCGETrBlNplb-xY0A2H5agB4EdNIky0="
         class="img-fluid"
-        alt="..."
+        alt="Artikel"
       />
       <div class="card-body">
         <NavLink to="/artikel/1">

@@ -35,11 +35,11 @@ const FormSuratDomisili = (props) => {
       <div className="form-input">
         <div class="group mb-4">
           <h5>Alamat Domisili</h5>
-          <input required type="text" onChange={(e) => setAlamat(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-describedby="emailHelp" />
+          <input required type="text" onChange={(e) => setAlamat(e.target.value)} class="form-control" placeholder="Contoh: Jalan Coklat IV" aria-label="Alamat" />
         </div>
         <div class="group mb-4">
           <h5>Jenis Kepemilikan Rumah</h5>
-          <select onChange={(e) => setKepemilikanRumah(e.target.value)} class="form-select" aria-label="Default select example">
+          <select onChange={(e) => setKepemilikanRumah(e.target.value)} class="form-select" aria-label="Jenis Kepemilikan Rumah">
             <option value="Kos">Kos</option>
             <option value="Kontrak">Kontrak</option>
             <option value="Pribadi">Pribadi</option>
@@ -47,11 +47,11 @@ const FormSuratDomisili = (props) => {
         </div>
         <div class="group mb-4">
           <h5>Unggah Surat</h5>
-          <input required onChange={(e) => setFileSurat(e.target.files[0])} type="file" class="form-control" aria-describedby="emailHelp" />
+          <input required onChange={(e) => setFileSurat(e.target.files[0])} type="file" class="form-control" aria-label="File Unggah" />
         </div>
         <div class="group mb-4">
           <h5>Keterangan</h5>
-          <textarea onChange={(e) => setKeterangan(e.target.value)} className="form-control" placeholder="Tuliskan keterangan anda disini" cols="30" rows="10"></textarea>
+          <textarea onChange={(e) => setKeterangan(e.target.value)} className="form-control" aria-label="Keterangan" placeholder="Tuliskan keterangan anda disini" cols="30" rows="10"></textarea>
         </div>
         <div class="group mb-4">
           <input type="submit" className="btn btn-success" value="Ajukan Surat" />
