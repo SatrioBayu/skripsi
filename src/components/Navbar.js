@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "../assets/css/Navbar.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [nama, setNama] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token") ? true : false);
+  const navigate = useNavigate();
 
   const fetchData = () => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -12,7 +14,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.reload();
+    navigate("/");
   };
 
   useEffect(() => {
@@ -74,7 +76,7 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li>
-                    <a onClick={handleLogout} class="dropdown-item" href="#">
+                    <a onClick={handleLogout} class="dropdown-item" href="/">
                       Logout
                     </a>
                   </li>

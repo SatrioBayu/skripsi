@@ -30,11 +30,11 @@ const PengajuanSurat = () => {
                 <option value="Surat Umum">Surat Umum</option>
               </select>
             </div>
-            {jenisSurat == "Surat Keterangan Domisili" && <FormSuratDomisili surat={jenisSurat} />}
-            {jenisSurat == "Surat Pengantar Menikah" && <FormSuratPengantar surat={jenisSurat} />}
-            {jenisSurat == "Surat Persetujuan Tetangga" && <FormSuratPersetujuanTetangga surat={jenisSurat} />}
-            {jenisSurat == "Surat Keterangan Belum Menikah" && <FormSuratBelumMenikah surat={jenisSurat} />}
-            {jenisSurat == "Surat Umum" && <FormSuratUmum surat={jenisSurat} />}
+            {jenisSurat === "Surat Keterangan Domisili" && <FormSuratDomisili surat={jenisSurat} />}
+            {jenisSurat === "Surat Pengantar Menikah" && <FormSuratPengantar surat={jenisSurat} />}
+            {jenisSurat === "Surat Persetujuan Tetangga" && <FormSuratPersetujuanTetangga surat={jenisSurat} />}
+            {jenisSurat === "Surat Keterangan Belum Menikah" && <FormSuratBelumMenikah surat={jenisSurat} />}
+            {jenisSurat === "Surat Umum" && <FormSuratUmum surat={jenisSurat} />}
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-3">
