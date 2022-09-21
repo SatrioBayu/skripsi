@@ -1,0 +1,7 @@
+.invalid{
+    border: 1px solid #DD3F4B !important;
+}
+.invalid-text{
+    color: #DD3F4B;
+    font-size: small;
+}
