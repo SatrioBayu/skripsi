@@ -1,5 +1,7 @@
 import styles from "../assets/css/Carousel.module.css";
 import ButtonAjukanSurat from "./ButtonAjukanSurat";
+import Gambar from "../assets/images/coba.jpeg";
+import Gambar2 from "../assets/images/coba2.jpeg";
 
 const Carousel = () => {
   return (
@@ -15,11 +17,10 @@ const Carousel = () => {
           </div>
         </div>
         <div class={`carousel-item`}>
-          <img
-            src="https://img.freepik.com/premium-vector/loudspeaker-megaphone-bullhorn-yellow-background-empty-banner-template-promotion-design_578506-256.jpg?w=2000"
-            class="d-block w-100"
-            alt="Pengumuman"
-          />
+          <img src={Gambar} class="d-block w-100" alt="Pengumuman" />
+        </div>
+        <div class={`carousel-item`}>
+          <img src={Gambar2} class="d-block w-100" alt="Pengumuman" />
         </div>
         <div class={`carousel-item`}>
           <img

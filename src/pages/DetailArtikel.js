@@ -1,11 +1,29 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ArrowBack from "../components/ArrowBack";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import parse from "html-react-parser";
 
 const DetailArtikel = () => {
+  const { id } = useParams();
+  const [artikel, setArtikel] = useState("");
+
+  const fetchData = async () => {
+    const data = await (await axios.get("https://pengmas.mides.id/api/v1/berita")).data.data;
+    const detail = data.filter((a) => a.id == id)[0];
+    setArtikel(detail);
+  };
+
   const handleBack = () => {
     window.history.back();
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="main">
@@ -13,25 +31,13 @@ const DetailArtikel = () => {
       <div className="container mt-5">
         <ArrowBack handleBack={handleBack} />
 
-        <div id="artikel" className="mb-5">
-          <h2>Judul Artikel</h2>
-          <img
-            src="https://img.freepik.com/premium-vector/loudspeaker-megaphone-bullhorn-yellow-background-empty-banner-template-promotion-design_578506-256.jpg?w=2000"
-            className="img-fluid my-3"
-            alt="Image"
-          />
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis odio voluptatum animi alias fugit sint eos excepturi quam esse? Quasi quis qui officia laudantium quaerat unde, hic
-            repellat dolore numquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis culpa quasi nihil. Laudantium et accusamus cumque, quas est vel, quo autem rerum sit officiis iste,
-            sed alias hic. Nisi, voluptatum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem sed assumenda dolor voluptas at maxime fugiat doloremque dolorum, praesentium quo
-            placeat sapiente sint a illum veritatis. Dolorem rem corporis itaque. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum eligendi qui blanditiis alias adipisci illo eos ullam,
-            voluptatum placeat sint sequi corrupti nihil cum cumque mollitia laborum omnis aut tenetur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae exercitationem perferendis
-            eos tempora ipsa enim fugit necessitatibus eaque consequuntur dolores beatae, est ullam, amet soluta harum et provident, eveniet voluptate. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Ut esse quibusdam molestias commodi dolores laudantium deleniti libero sunt aliquid perspiciatis dolore cum officia id natus, cumque, minima beatae accusamus? Temporibus.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere nesciunt dolor illo obcaecati nam corrupti animi adipisci quia, recusandae vero magnam doloremque aut laudantium. Rerum
-            itaque reiciendis laboriosam omnis maiores!
-          </p>
-        </div>
+        {artikel && (
+          <div id="artikel" className="mb-5">
+            <h2>{artikel.title}</h2>
+            <img src={artikel["image_url"]} className="img-fluid my-3" alt="Image" />
+            {parse(artikel.content)}
+          </div>
+        )}
       </div>
       <Footer />
     </div>
