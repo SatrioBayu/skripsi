@@ -8,3 +8,15 @@
     text-decoration: underline;
     color: #016399;
 }
+.rejected{
+    color: red;
+}
+.w-40{
+    width: 40%;
+}
+.w-30{
+    width: 30%;
+}
+.small{
+    font-size: small;
+}

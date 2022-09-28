@@ -13,15 +13,17 @@
 .no-padding{
     padding: 0 !important;
 }
-.dropdown-menu {
-    transform: translate3d(-90px, 5px, 0);
-}
+
 .dropdown-menu a{
     color: black;
 }
-@media screen and (max-width: 768px) {
-    .dropdown-menu{
-        position: static;
-        transform: translate3d(0, 5px, 0);
+.dropdown-menu{
+    position: static;
+    transform: translate3d(0, 5px, 0);
+}
+@media only screen and (min-width: 768px) {
+    .dropdown-menu {
+        position: absolute;
+        transform: translate3d(-3rem, 5px, 0);
     }
 }

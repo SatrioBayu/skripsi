@@ -8,6 +8,10 @@
     max-height: 25rem;
     background-color: #F2F2F2;
 }
+.link{
+    color: #016399;
+    text-decoration: underline;
+}
 
 @media (max-width: 768px) {
     .img-height img {
@@ -27,5 +31,13 @@
 .bg-caption{
     background-color: white;
     border-radius: 10px;
-    border: 1px solid transparent
+    width: 25rem;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 769px) {
+    .bg-caption{
+        display: none !important;
+    }
 }
