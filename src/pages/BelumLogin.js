@@ -13,14 +13,22 @@ const BelumLogin = () => {
         </div>
         <h2 className="fw-bold text-center my-3">Anda Belum Login</h2>
         <p className="text-center">
-          Jika belum memiliki akun silahkan menemui RT untuk dilakukan <br /> proses pendataan kependudukan dan mendapatkan akun
+          Jika belum memiliki akun silahkan menemui bapak Dr. Eng. I Nyoman Suluh S.T., M.T. selaku ketua RT di Jl. Kopi 1A Malang <br /> atau hubungi nomor&nbsp;
+          <span>
+            <a className={`${styles["link"]}`} target="_blank" href="https://api.whatsapp.com/send?phone=6281252541152">
+              081252541152&nbsp;
+            </a>
+          </span>
+          untuk dilakukan proses pendataan kependudukan.
+          <br />
         </p>
         <p className="text-center">
-          Jika telah memiliki akun bisa melakukan login melalui navbar diatas atau lewat{" "}
+          Jika telah memiliki akun bisa melakukan login melalui navbar diatas atau melalui link
           <span>
             <a href="/login" className={`${styles["link"]}`}>
-              sini
+              &nbsp;berikut
             </a>
+            .
           </span>
         </p>
       </div>

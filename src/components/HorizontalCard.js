@@ -1,6 +1,6 @@
 import styles from "../assets/css/HorizontalCard.module.css";
 
-const HorizontalCard = () => {
+const HorizontalCard = (props) => {
   return (
     <div class={`card my-5 ${styles["card-border"]}`}>
       <div class="row g-0 align-items-center">
@@ -14,7 +14,7 @@ const HorizontalCard = () => {
         <div class="col-md-9">
           <div class="card-body">
             <a href="/pengumuman/1">
-              <h5 class="card-title fw-bold mb-3">Judul Pengumuman</h5>
+              <h5 class="card-title fw-bold mb-3">{props.data.title}</h5>
             </a>
             <p class="card-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sed quibusdam dolores iusto ea odio animi dolore possimus! Omnis dolore rem aliquid provident nihil porro fuga ipsa sint a

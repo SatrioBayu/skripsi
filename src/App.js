@@ -18,8 +18,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/pengumuman/1" element={<DetailPengumuman />} />
-          <Route path="/artikel/1" element={<DetailArtikel />} />
+          <Route path="/pengumuman/:id" element={<DetailPengumuman />} />
+          <Route path="/artikel/:id" element={<DetailArtikel />} />
           <Route path="/peraturan" element={<Peraturan />} />
           <Route path="/pengumuman" element={<ListPengumuman />} />
           <Route path="/artikel" element={<ListArtikel />} />

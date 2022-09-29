@@ -107,7 +107,7 @@ const FormSuratPersetujuanTetangga = (props) => {
           {error === "File" && <p className={`${styles["invalid-text"]}`}>Silahkan lakukan upload surat terlebih dahulu. Template surat telah disediakan pada bagian kanan halaman ini.</p>}
         </div>
         <div class="group mb-4">
-          <p className="fw-bold">Keterangan: Dihimbau untuk tetap mendatangi RT untuk proses selanjutnya</p>
+          <p className={`fw-bold ${styles.small}`}>Keterangan: Dihimbau untuk tetap mendatangi RT di Jl. Kopi 1A Malang untuk proses selanjutnya</p>
         </div>
         <div class="group mb-4">
           <button onClick={handleClick} className="btn btn-success">

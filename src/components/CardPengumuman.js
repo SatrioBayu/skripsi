@@ -1,7 +1,7 @@
 import styles from "../assets/css/Card.module.css";
 import { NavLink } from "react-router-dom";
 
-const CardPengumuman = () => {
+const CardPengumuman = (props) => {
   return (
     <div class={`card ${styles["card-border"]} ${styles["card-width"]} ${styles["card-shadow"]} h-100`}>
       <img
@@ -10,11 +10,11 @@ const CardPengumuman = () => {
         alt="Pengumuman"
       />
       <div class="card-body">
-        <NavLink to="/pengumuman/1">
-          <h5 class={`card-title ${styles["card-color"]} ${styles["card-title"]}`}>Pengumuman 1</h5>
+        <NavLink to={`/pengumuman/${props.data.id}`}>
+          <h5 class={`card-title ${styles["card-color"]} ${styles["card-title"]}`}>{props.data.title}</h5>
         </NavLink>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <NavLink to="/pengumuman/1">
+        <NavLink to={`/pengumuman/${props.data.id}`}>
           <p class={`${styles["card-color"]} ${styles["card-footer"]}`}>Baca Selengkapnya</p>
         </NavLink>
       </div>

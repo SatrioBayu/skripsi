@@ -54,7 +54,14 @@ const FormSuratBelumMenikah = (props) => {
         </div>
         <div class="group mb-4">
           <h5>Keterangan</h5>
-          <textarea onChange={(e) => setKeterangan(e.target.value)} className="form-control" aria-label="Keterangan" placeholder="Tuliskan keterangan anda disini" cols="30" rows="10"></textarea>
+          <textarea
+            onChange={(e) => setKeterangan(e.target.value)}
+            className="form-control"
+            aria-label="Keterangan"
+            placeholder={`Contoh: \nSaya butuh surat ini untuk memenuhi persyaratan dalam proses perekrutan kerja di perusahaan Google`}
+            cols="30"
+            rows="10"
+          ></textarea>
         </div>
         <div class="group mb-4">
           <button onClick={handleClick} className="btn btn-success">

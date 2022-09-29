@@ -23,7 +23,13 @@ hr{
   height: 0.8rem !important;
   width: 7rem !important;
 }
+input::placeholder {
+  font-size: small;
+}
 
+textarea::placeholder {
+  font-size: small;
+}
 .main{
   min-height: 100vh;
   height: 100%;
