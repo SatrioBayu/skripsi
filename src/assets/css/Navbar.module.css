@@ -13,7 +13,11 @@
 .no-padding{
     padding: 0 !important;
 }
-
+.dropdown-size{
+    max-width: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .dropdown-menu a{
     color: black;
 }

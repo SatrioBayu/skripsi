@@ -40,11 +40,11 @@ const Carousel = () => {
     //   </button>
     // </div>
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
+      {/* <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
+      </div> */}
       <div class={`carousel-inner ${styles["img-height"]}`}>
         <div class="carousel-item active" data-bs-interval="10000">
           <a href="/ajukanSurat">
@@ -63,14 +63,14 @@ const Carousel = () => {
             </p>
           </div>
         </div>
-        <div class="carousel-item" data-bs-interval="2000">
+        <div class="carousel-item" data-bs-interval="10000">
           <img src={Gambar} class="d-block w-100" alt="..." />
           <div class={`carousel-caption d-none d-md-block ${styles["bg-caption"]}`}>
             <h5>Kegiatan 17 Agustus 2022</h5>
             <p>Perayaan acara kemerdekaan</p>
           </div>
         </div>
-        <div class="carousel-item">
+        <div class="carousel-item" data-bs-interval="10000">
           <img src={Gambar2} class="d-block w-100" alt="..." />
           <div class={`carousel-caption d-none d-md-block ${styles["bg-caption"]}`}>
             <h5>Kegiatan 17 Agustus 2022</h5>

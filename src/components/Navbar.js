@@ -63,12 +63,15 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-          <div className="d-flex">
+          <div className={`d-flex`}>
             {isLoggedIn ? (
-              <div className={`dropdown ${styles["nav-med"]}`}>
+              <div className={`dropdown`}>
                 <a href="#" data-bs-toggle="dropdown">
-                  Hi, {nama}
+                  Hi, {nama.split(" ").sort((a, b) => a.length - b.length)[0]}
                 </a>
+                {/* <a href="#" data-bs-toggle="dropdown">
+                  Hi, {nama}
+                </a> */}
                 <ul class={`dropdown-menu ${styles["dropdown-menu"]}`}>
                   <li>
                     <a class="dropdown-item" href="/profile">
