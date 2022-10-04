@@ -44,7 +44,7 @@ const Artikel = () => {
   }, []);
 
   return (
-    <div class="container-fluid">
+    <div class="container">
       <div class="my-4 d-flex flex-column align-items-center">
         <h4 className="fw-bold">Artikel</h4>
         <hr />

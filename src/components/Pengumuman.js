@@ -44,7 +44,7 @@ const Pengumuman = () => {
   }, []);
 
   return (
-    <div class="container-fluid">
+    <div class="container">
       <div class="my-4 d-flex flex-column align-items-center">
         <h4 className="fw-bold">Pengumuman</h4>
         <hr />
