@@ -24,13 +24,34 @@
 .navbar-title{
     font-size: 1.375rem;
 }
+.info{
+    display: none !important;
+}
 .dropdown-menu{
     position: static;
     transform: translate3d(0, 5px, 0);
 }
+.no-style{
+    list-style: none;
+}
+.nav-mobile{
+    display: block;
+}
+.navbar-item{
+    font-size: 0.9rem;
+}
+.active{
+    text-decoration: underline;
+}
 @media only screen and (min-width: 768px) {
     .dropdown-menu {
         position: absolute;
-        transform: translate3d(-3rem, 5px, 0);
+        transform: translate3d(-6rem, 5px, 0);
+    }
+    .info {
+        display: flex !important;
+    }
+    .nav-mobile{
+        display: none;
     }
 }

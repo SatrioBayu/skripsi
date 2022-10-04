@@ -5,7 +5,7 @@
   color: #016399 !important;
 }
 .card-title {
-  font-size: 1.625rem;
+  font-size: 1.5rem;
 }
 .card-footer {
   font-size: 0.9rem;
@@ -22,5 +22,7 @@
 .card-image{
   width: 100%;
   height: auto;
+  height: 20rem;
+  object-fit: cover;
   border-radius: 10px;
 }

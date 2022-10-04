@@ -1,6 +1,7 @@
 .side-img{
     object-fit: cover;
-    max-width: 13rem;
+    width: 13rem;
+    height: 10rem;
 }
 .card-border{
     border-left: 0;

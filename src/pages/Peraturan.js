@@ -17,41 +17,31 @@ const Peraturan = () => {
         <div id="peraturan" className="mb-5">
           <h2 className="text-center my-5">Peraturan RT 04 RW 12 Kelurahan Tulusrejo</h2>
           <ol className={`${styles["no-padding"]}`}>
-            <li className="fs-6">
+            <li>
+              <p className="fs-6">Dilarang mencuri.</p>
+            </li>
+            <li>
+              <p className="fs-6">Dilarang membuat kegaduhan saat malam hari.</p>
+            </li>
+            <li>
+              <p className="fs-6">Tamu 2x24 jam harap lapor RT.</p>
+            </li>
+            <li>
+              <p className="fs-6">Larangan perbuatan kriminal dan asusila.</p>
+            </li>
+            <li>
+              <p className="fs-6">Dihimbau para warga untuk aktif dalam kegiatan RT.</p>
+            </li>
+            <li>
+              <p className="fs-6">Warga diwajibkan menggunakan masker dalam kegiatan di luar rumah.</p>
+            </li>
+            <li>
               <p className="fs-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic in impedit consequatur modi perferendis sint. Beatae nulla, repudiandae necessitatibus laborum, quo, non nemo excepturi
-                dolor ullam molestias temporibus sequi commodi!
+                Dalam rangka menciptakan kawasan <i>eco friendly</i> warga diharap menekan penggunaan listrik rumah.
               </p>
             </li>
-            <li className="fs-6">
-              <p className="fs-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic in impedit consequatur modi perferendis sint. Beatae nulla, repudiandae necessitatibus laborum, quo, non nemo excepturi
-                dolor ullam molestias temporibus sequi commodi!
-              </p>
-            </li>
-            <li className="fs-6">
-              <p className="fs-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic in impedit consequatur modi perferendis sint. Beatae nulla, repudiandae necessitatibus laborum, quo, non nemo excepturi
-                dolor ullam molestias temporibus sequi commodi!
-              </p>
-            </li>
-            <li className="fs-6">
-              <p className="fs-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic in impedit consequatur modi perferendis sint. Beatae nulla, repudiandae necessitatibus laborum, quo, non nemo excepturi
-                dolor ullam molestias temporibus sequi commodi!
-              </p>
-            </li>
-            <li className="fs-6">
-              <p className="fs-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic in impedit consequatur modi perferendis sint. Beatae nulla, repudiandae necessitatibus laborum, quo, non nemo excepturi
-                dolor ullam molestias temporibus sequi commodi!
-              </p>
-            </li>
-            <li className="fs-6">
-              <p className="fs-6">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic in impedit consequatur modi perferendis sint. Beatae nulla, repudiandae necessitatibus laborum, quo, non nemo excepturi
-                dolor ullam molestias temporibus sequi commodi!
-              </p>
+            <li>
+              <p className="fs-6">Dilarang membuang sampah sembarangan. Apabila tertangkap maka pelaku akan dikenakan denda.</p>
             </li>
           </ol>
         </div>
