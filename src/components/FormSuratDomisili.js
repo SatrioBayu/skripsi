@@ -68,6 +68,7 @@ const FormSuratDomisili = (props) => {
         </div>
         <div class="group mb-4">
           <h5>Unggah Surat</h5>
+          {/* <p className={`${styles["small"]} text-secondary`}>File template surat bisa diunduh pada bagian kanan halaman ini. Mohon sesuaikan surat yang akan diunggah dengan surat permohonan</p> */}
           <input
             accept=".doc, .docx, application/msword, application/pdf"
             required

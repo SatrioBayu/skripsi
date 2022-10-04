@@ -21,6 +21,9 @@
 .dropdown-menu a{
     color: black;
 }
+.navbar-title{
+    font-size: 1.375rem;
+}
 .dropdown-menu{
     position: static;
     transform: translate3d(0, 5px, 0);

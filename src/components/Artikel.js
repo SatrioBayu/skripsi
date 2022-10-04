@@ -19,7 +19,7 @@ const Artikel = () => {
   return (
     <div class="container-fluid">
       <div class="my-4 d-flex flex-column align-items-center">
-        <h3>Artikel</h3>
+        <h4 className="fw-bold">Artikel</h4>
         <hr />
       </div>
       <div class="row g-4">

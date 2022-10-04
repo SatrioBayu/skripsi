@@ -1,12 +1,12 @@
 .btn-biru{
     background-color: #366DCA;
     color: white;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 .btn-hijau{
     background-color: #1A802B;
     color: white;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 .btn-shadow{
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);

@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav class={`navbar navbar-expand-md ${styles["nav-bg"]} ${styles["nav-color"]}`}>
       <div class="container-lg">
-        <a class={`navbar-brand ${styles["no-padding"]}`} href="/">
+        <a class={`me-5 ${styles["no-padding"]} fw-bold`} href="/">
           Web RT Tulusrejo
         </a>
         <button
