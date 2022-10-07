@@ -49,7 +49,8 @@ const Pengumuman = () => {
         <h4 className="fw-bold">Pengumuman</h4>
         <hr />
       </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
         {/* Asli */}
         {/* {announcements &&
           announcements.map((announcement) => (
