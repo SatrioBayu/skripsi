@@ -60,38 +60,22 @@ const ListArtikel = () => {
       <div class="container-fluid my-5">
         <h2 className="text-center">Daftar Artikel</h2>
         <p className="text-center">Anda dapat melihat daftar artikel</p>
-        <div class="row mt-2 mb-5 gy-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-5">
+          {dummy &&
+            dummy.map((artikel) => (
+              <div key={artikel.id} class="col d-flex justify-content-center">
+                <CardArtikel data={artikel} />
+              </div>
+            ))}
+        </div>
+        {/* <div class="row mt-2 mb-5 gy-5">
           {dummy &&
             dummy.map((article) => (
               <div key={article.id} class="col-lg-4 col-sm-6 d-flex justify-content-center">
                 <CardArtikel data={article} />
               </div>
             ))}
-          {/* <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div>
-          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div>
-          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div>
-          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div>
-          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div>
-          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div>
-          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div>
-          <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
-            <CardArtikel />
-          </div> */}
-        </div>
+        </div> */}
         <Pagination pages={pagination} page={page} changePage={changePage} />
       </div>
       <Footer />

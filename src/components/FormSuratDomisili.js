@@ -44,7 +44,7 @@ const FormSuratDomisili = (props) => {
     <form onSubmit={handleSubmit}>
       <div className="form-input">
         <div class="group mb-4">
-          <h5>Alamat Domisili</h5>
+          <h5 className={`${styles["required"]}`}>Alamat Domisili</h5>
           <input
             required
             type="text"
@@ -59,7 +59,7 @@ const FormSuratDomisili = (props) => {
           {error === "Alamat" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat domisili anda</p>}
         </div>
         <div class="group mb-4">
-          <h5>Jenis Kepemilikan Rumah</h5>
+          <h5 className={`${styles["required"]}`}>Jenis Kepemilikan Rumah</h5>
           <select onChange={(e) => setKepemilikanRumah(e.target.value)} class="form-select" aria-label="Jenis Kepemilikan Rumah">
             <option value="Kos">Kos</option>
             <option value="Kontrak">Kontrak</option>
@@ -67,8 +67,8 @@ const FormSuratDomisili = (props) => {
           </select>
         </div>
         <div class="group mb-4">
-          <h5>Unggah Surat</h5>
-          {/* <p className={`${styles["small"]} text-secondary`}>File template surat bisa diunduh pada bagian kanan halaman ini. Mohon sesuaikan surat yang akan diunggah dengan surat permohonan</p> */}
+          <h5 className={`${styles["required"]}`}>Unggah Surat</h5>
+          <p className={`${styles["small"]}`}>Silahkan unduh template surat yang tersedia apabila diperlukan pada proses pengajuan surat</p>
           <input
             accept=".doc, .docx, application/msword, application/pdf"
             required
@@ -80,7 +80,7 @@ const FormSuratDomisili = (props) => {
             class={`form-control ${error === "File" ? `${styles["invalid"]}` : ""}`}
             aria-label="File Unggah"
           />
-          {error === "File" && <p className={`${styles["invalid-text"]}`}>Silahkan lakukan upload surat terlebih dahulu. Template surat telah disediakan pada bagian kanan halaman ini.</p>}
+          {error === "File" && <p className={`${styles["invalid-text"]}`}>Silahkan lakukan upload surat yang diperlukan terlebih dahulu. Template surat telah disediakan pada halaman ini.</p>}
         </div>
         <div class="group mb-4">
           <h5>Keterangan</h5>

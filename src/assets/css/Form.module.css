@@ -8,3 +8,7 @@
 .small{
     font-size: small;
 }
+.required::after{
+    content: " *";
+    color: red;
+}

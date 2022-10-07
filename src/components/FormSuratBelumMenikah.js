@@ -38,7 +38,7 @@ const FormSuratBelumMenikah = (props) => {
     <form onSubmit={handleSubmit}>
       <div class="form-input">
         <div class="group mb-4">
-          <h5>Alamat</h5>
+          <h5 className={`${styles["required"]}`}>Alamat</h5>
           <input
             required
             type="text"

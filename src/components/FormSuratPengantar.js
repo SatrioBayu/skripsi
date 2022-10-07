@@ -40,7 +40,7 @@ const FormSuratPengantar = (props) => {
     <form onSubmit={handleSubmit}>
       <div class="form-input">
         <div class="group mb-4">
-          <h5>Alamat Ayah</h5>
+          <h5 className={`${styles["required"]}`}>Alamat Ayah</h5>
           <input
             required
             type="text"
@@ -55,7 +55,7 @@ const FormSuratPengantar = (props) => {
           {error === "Alamat Ayah" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat ayah anda</p>}
         </div>
         <div class="group mb-4">
-          <h5>Alamat Ibu</h5>
+          <h5 className={`${styles["required"]}`}>Alamat Ibu</h5>
           <input
             required
             type="text"

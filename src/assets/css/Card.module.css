@@ -1,5 +1,5 @@
 .card-width {
-  max-width: 18rem;
+  width: 18rem;
 }
 .card-color {
   color: #016399 !important;
@@ -21,8 +21,18 @@
 }
 .card-image{
   width: 100%;
-  height: auto;
+  /* height: auto; */
   height: 20rem;
   object-fit: cover;
   border-radius: 10px;
+}
+@media (min-width: 577px) {
+  .card-width {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .card-width{
+    width: 18rem;
+  }
 }

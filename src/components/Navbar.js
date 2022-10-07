@@ -143,12 +143,12 @@ const Navbar = () => {
             {isLoggedIn ? (
               <div className={`${styles["nav-mobile"]}`}>
                 <li className="nav-item">
-                  <a class="nav-link" href="/profile">
+                  <a class={`${styles["navbar-item"]} nav-link`} href="/profile">
                     Informasi Akun
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a onClick={handleLogout} class="nav-link" href="/">
+                  <a onClick={handleLogout} class={`${styles["navbar-item"]} nav-link`} href="/">
                     <span id="basic-addon1">
                       <FontAwesomeIcon icon={faSignOutAlt} />
                       &nbsp;&nbsp;

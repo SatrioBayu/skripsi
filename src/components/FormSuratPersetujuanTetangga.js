@@ -48,7 +48,7 @@ const FormSuratPersetujuanTetangga = (props) => {
     <form onSubmit={handleSubmit}>
       <div className="form-input">
         <div class="group mb-4">
-          <h5>Alamat Tinggal</h5>
+          <h5 className={`${styles["required"]}`}>Alamat Tinggal</h5>
           <input
             required
             type="text"
@@ -63,7 +63,7 @@ const FormSuratPersetujuanTetangga = (props) => {
           {error === "Alamat" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat tinggal anda sekarang</p>}
         </div>
         <div class="group mb-4">
-          <h5>Jenis Usaha</h5>
+          <h5 className={`${styles["required"]}`}>Jenis Usaha</h5>
           <input
             required
             type="text"
@@ -78,7 +78,7 @@ const FormSuratPersetujuanTetangga = (props) => {
           {error === "Jenis Usaha" && <p className={`${styles["invalid-text"]}`}>Silahkan isi jenis usaha anda</p>}
         </div>
         <div class="group mb-4">
-          <h5>Lokasi Tempat Usaha</h5>
+          <h5 className={`${styles["required"]}`}>Lokasi Tempat Usaha</h5>
           <input
             required
             type="text"
@@ -93,7 +93,8 @@ const FormSuratPersetujuanTetangga = (props) => {
           {error === "Lokasi" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat lokasi usaha anda</p>}
         </div>
         <div class="group mb-4">
-          <h5>Unggah Surat</h5>
+          <h5 className={`${styles["required"]}`}>Unggah Surat</h5>
+          <p className={`${styles["small"]}`}>Silahkan unduh template surat yang tersedia apabila diperlukan pada proses pengajuan surat</p>
           <input
             required
             onChange={(e) => {
@@ -104,7 +105,7 @@ const FormSuratPersetujuanTetangga = (props) => {
             class={`form-control ${error === "File" ? `${styles["invalid"]}` : ""}`}
             aria-label="File Unggah"
           />
-          {error === "File" && <p className={`${styles["invalid-text"]}`}>Silahkan lakukan upload surat terlebih dahulu. Template surat telah disediakan pada bagian kanan halaman ini.</p>}
+          {error === "File" && <p className={`${styles["invalid-text"]}`}>Silahkan lakukan upload surat yang diperlukan terlebih dahulu. Template surat telah disediakan pada halaman ini.</p>}
         </div>
         <div class="group mb-4">
           <p className={`fw-bold ${styles.small}`}>Keterangan: Dihimbau untuk tetap mendatangi RT di Jl. Kopi 1A Malang untuk proses selanjutnya</p>
