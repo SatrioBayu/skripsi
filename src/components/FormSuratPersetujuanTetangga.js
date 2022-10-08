@@ -2,99 +2,61 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import styles from "../assets/css/Form.module.css";
+import axios from "axios";
 
 const FormSuratPersetujuanTetangga = (props) => {
   const navigate = useNavigate();
-  const [alamat, setAlamat] = useState("");
-  const [jenisUsaha, setJenisUsaha] = useState("");
-  const [lokasi, setLokasi] = useState("");
+  const [keterangan, setKeterangan] = useState("");
   const [fileSurat, setFileSurat] = useState("");
   const [error, setError] = useState(false);
 
   const handleClick = () => {
-    if (!alamat) {
-      setError("Alamat");
-    } else if (!jenisUsaha) {
-      setError("Jenis Usaha");
-    } else if (!lokasi) {
-      setError("Lokasi");
-    } else if (!fileSurat) {
+    if (!fileSurat) {
       setError("File");
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      jenisSurat: props.surat,
-      alamat,
-      jenisUsaha,
-      lokasi,
-      fileSurat,
-    };
-    console.log(data);
-    Swal.fire({
-      icon: "success",
-      title: "Surat Berhasil Diajukan",
-      confirmButtonColor: "#198754",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/suratSaya");
-      }
-    });
+    const formData = new FormData();
+    formData.append("keterangan_surat", keterangan);
+    formData.append("document", fileSurat);
+    try {
+      const res = await axios.post("https://pengmas.mides.id/api/v1/generate/surat-persetujuan-tetangga", formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      Swal.fire({
+        icon: "success",
+        title: "Surat Berhasil Diajukan",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/suratSaya");
+        }
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Terjadi Kesalahan Silahkan Coba Lagi",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/ajukanSurat");
+        }
+      });
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-input">
         <div class="group mb-4">
-          <h5 className={`${styles["required"]}`}>Alamat Tinggal</h5>
-          <input
-            required
-            type="text"
-            onChange={(e) => {
-              setAlamat(e.target.value);
-              setError(false);
-            }}
-            class={`form-control ${error === "Alamat" ? `${styles["invalid"]}` : ""}`}
-            placeholder="Contoh: Jalan Coklat IV"
-            aria-label="Alamat"
-          />
-          {error === "Alamat" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat tinggal anda sekarang</p>}
-        </div>
-        <div class="group mb-4">
-          <h5 className={`${styles["required"]}`}>Jenis Usaha</h5>
-          <input
-            required
-            type="text"
-            onChange={(e) => {
-              setJenisUsaha(e.target.value);
-              setError(false);
-            }}
-            class={`form-control ${error === "Jenis Usaha" ? `${styles["invalid"]}` : ""}`}
-            placeholder="Makanan"
-            aria-label="Jenis Usaha"
-          />
-          {error === "Jenis Usaha" && <p className={`${styles["invalid-text"]}`}>Silahkan isi jenis usaha anda</p>}
-        </div>
-        <div class="group mb-4">
-          <h5 className={`${styles["required"]}`}>Lokasi Tempat Usaha</h5>
-          <input
-            required
-            type="text"
-            onChange={(e) => {
-              setLokasi(e.target.value);
-              setError(false);
-            }}
-            class={`form-control ${error === "Lokasi" ? `${styles["invalid"]}` : ""}`}
-            placeholder="Contoh: Jalan Coklat IV"
-            aria-label="Lokasi Usaha"
-          />
-          {error === "Lokasi" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat lokasi usaha anda</p>}
-        </div>
-        <div class="group mb-4">
           <h5 className={`${styles["required"]}`}>Unggah Surat</h5>
-          <p className={`${styles["small"]}`}>Silahkan unduh template surat yang tersedia apabila diperlukan pada proses pengajuan surat</p>
+          <p className={`${styles["small"]}`}>
+            Silahkan unduh template surat yang tersedia apabila diperlukan pada proses pengajuan surat. Jenis surat yang diterima berupa file <span className={`fw-bold`}>.pdf</span>
+          </p>
           <input
             required
             onChange={(e) => {
@@ -102,10 +64,22 @@ const FormSuratPersetujuanTetangga = (props) => {
               setError(false);
             }}
             type="file"
+            accept="application/pdf"
             class={`form-control ${error === "File" ? `${styles["invalid"]}` : ""}`}
             aria-label="File Unggah"
           />
           {error === "File" && <p className={`${styles["invalid-text"]}`}>Silahkan lakukan upload surat yang diperlukan terlebih dahulu. Template surat telah disediakan pada halaman ini.</p>}
+        </div>
+        <div class="group mb-4">
+          <h5>Keterangan</h5>
+          <textarea
+            onChange={(e) => setKeterangan(e.target.value)}
+            className="form-control"
+            aria-label="Keterangan"
+            placeholder={`Contoh: \nSaya butuh surat ini untuk memenuhi persyaratan dalam proses perekrutan kerja di perusahaan Google`}
+            cols="30"
+            rows="10"
+          ></textarea>
         </div>
         <div class="group mb-4">
           <p className={`fw-bold ${styles.small}`}>Keterangan: Dihimbau untuk tetap mendatangi RT di Jl. Kopi 1A Malang untuk proses selanjutnya</p>

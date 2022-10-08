@@ -3,15 +3,23 @@ import styles from "../assets/css/Navbar.module.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const Navbar = () => {
   const [nama, setNama] = useState("");
   const [isLoggedIn] = useState(localStorage.getItem("token") ? true : false);
   const navigate = useNavigate();
 
-  const fetchData = () => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    setNama(token.username);
+  const fetchData = async () => {
+    const token = localStorage.getItem("token");
+    // setNama(token.username);
+    const res = await axios.get("https://pengmas.mides.id/api/v1/self-information", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const nama = res.data.data.father_name;
+    setNama(nama);
   };
 
   const handleLogout = () => {
@@ -173,6 +181,7 @@ const Navbar = () => {
             <div className={`dropdown`}>
               <a href="#" className={`${styles["navbar-item"]} fw-bold`} data-bs-toggle="dropdown">
                 Hi, {nama.split(" ").sort((a, b) => a.length - b.length)[0]}
+                {/* Hi */}
               </a>
               <ul class={`dropdown-menu ${styles["dropdown-menu"]}`}>
                 <li>

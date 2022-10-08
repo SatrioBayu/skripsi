@@ -2,6 +2,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import styles from "../assets/css/Form.module.css";
+import axios from "axios";
 
 const FormSuratPengantar = (props) => {
   const navigate = useNavigate();
@@ -17,23 +18,38 @@ const FormSuratPengantar = (props) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      jenisSurat: props.surat,
-      alamatAyah,
-      alamatIbu,
+      father_address: alamatAyah,
+      mother_address: alamatIbu,
     };
-    Swal.fire({
-      icon: "success",
-      title: "Surat Berhasil Diajukan",
-      confirmButtonColor: "#198754",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/suratSaya");
-      }
-    });
-    console.log(data);
+    try {
+      const res = await axios.post("https://pengmas.mides.id/api/v1/generate/surat-pengantar-nikah", data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      Swal.fire({
+        icon: "success",
+        title: "Surat Berhasil Diajukan",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/suratSaya");
+        }
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Terjadi Kesalahan",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/ajukanSurat");
+        }
+      });
+    }
   };
 
   return (
