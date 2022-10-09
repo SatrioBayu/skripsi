@@ -18,7 +18,7 @@ const Navbar = () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    const nama = res.data.data.father_name;
+    const nama = res.data.data.name;
     setNama(nama);
   };
 
