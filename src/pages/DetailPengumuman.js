@@ -40,9 +40,9 @@ const DetailPengumuman = () => {
   const [pengumuman, setPengumuman] = useState("");
 
   const fetchData = async () => {
-    // const data = await (await axios.get("https://pengmas.mides.id/api/v1/pengumuman")).data.data;
-    const detail = dummy.filter((a) => a.id == id)[0];
-    setPengumuman(detail);
+    // const data = await (await axios.get(`https://pengmas.mides.id/api/v1/pengumuman/${id}`)).data.data;
+    const data = dummy.filter((data) => data.id == id)[0];
+    setPengumuman(data);
   };
 
   const handleBack = () => {

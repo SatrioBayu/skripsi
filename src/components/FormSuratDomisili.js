@@ -2,48 +2,71 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import styles from "../assets/css/Form.module.css";
+import axios from "axios";
 
 const FormSuratDomisili = (props) => {
   const navigate = useNavigate();
-  const [alamat, setAlamat] = useState("");
+  // const [alamat, setAlamat] = useState("");
   const [kepemilikanRumah, setKepemilikanRumah] = useState("Kos");
   const [fileSurat, setFileSurat] = useState("");
   const [keterangan, setKeterangan] = useState("");
+  const [pemilikRumah, setPemilikRumah] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
-    if (!alamat) {
-      setError("Alamat");
+    // if (!alamat) {
+    //   setError("Alamat");
+    // }
+    if (!pemilikRumah) {
+      setError("Pemilik");
     } else if (!fileSurat) {
       setError("File");
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = {
-      jenisSurat: props.surat,
-      alamat,
-      kepemilikanRumah,
-      fileSurat,
-      keterangan,
-    };
-    Swal.fire({
-      icon: "success",
-      title: "Surat Berhasil Diajukan",
-      confirmButtonColor: "#198754",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/suratSaya");
-      }
-    });
-    console.log(data);
+    const formData = new FormData();
+    formData.append("keterangan_surat", keterangan);
+    formData.append("domicile_status", kepemilikanRumah);
+    formData.append("document", fileSurat);
+    formData.append("owner_house_name", pemilikRumah);
+    setLoading(true);
+    try {
+      const res = await axios.post("https://pengmas.mides.id/api/v1/upload/surat-domisili", formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      setLoading(false);
+      Swal.fire({
+        icon: "success",
+        title: "Surat Berhasil Diajukan",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/suratSaya");
+        }
+      });
+    } catch (error) {
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Terjadi Kesalahan Silahkan Coba Lagi",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/ajukanSurat");
+        }
+      });
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-input">
-        <div class="group mb-4">
+        {/* <div class="group mb-4">
           <h5 className={`${styles["required"]}`}>Alamat Domisili</h5>
           <input
             required
@@ -57,20 +80,37 @@ const FormSuratDomisili = (props) => {
             aria-label="Alamat"
           />
           {error === "Alamat" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat domisili anda</p>}
-        </div>
+        </div> */}
         <div class="group mb-4">
           <h5 className={`${styles["required"]}`}>Jenis Kepemilikan Rumah</h5>
           <select onChange={(e) => setKepemilikanRumah(e.target.value)} class="form-select" aria-label="Jenis Kepemilikan Rumah">
-            <option value="Kos">Kos</option>
-            <option value="Kontrak">Kontrak</option>
-            <option value="Pribadi">Pribadi</option>
+            <option value="KOST">Kos</option>
+            <option value="KONTRAK">Kontrak</option>
+            <option value="RUMAH_SAUDARA">Rumah Saudara</option>
           </select>
         </div>
         <div class="group mb-4">
-          <h5 className={`${styles["required"]}`}>Unggah Surat</h5>
-          <p className={`${styles["small"]}`}>Silahkan unduh template surat yang tersedia apabila diperlukan pada proses pengajuan surat</p>
+          <h5 className={`${styles["required"]}`}>Nama Pemilik Rumah</h5>
           <input
-            accept=".doc, .docx, application/msword, application/pdf"
+            required
+            type="text"
+            onChange={(e) => {
+              setPemilikRumah(e.target.value);
+              setError(false);
+            }}
+            class={`form-control ${error === "Pemilik" ? `${styles["invalid"]}` : ""}`}
+            placeholder="Contoh: Samsudin"
+            aria-label="Pemilik"
+          />
+          {error === "Pemilik" && <p className={`${styles["invalid-text"]}`}>Silahkan isi nama pemilik rumah yang sedang anda tinggali saat ini</p>}
+        </div>
+        <div class="group mb-4">
+          <h5 className={`${styles["required"]}`}>Unggah Surat</h5>
+          <p className={`${styles["small"]}`}>
+            Silahkan unduh template surat yang tersedia apabila diperlukan pada proses pengajuan surat. Jenis surat yang diterima berupa file <span className={`fw-bold`}>.pdf</span>
+          </p>
+          <input
+            accept="application/pdf"
             required
             onChange={(e) => {
               setFileSurat(e.target.files[0]);
@@ -95,9 +135,16 @@ const FormSuratDomisili = (props) => {
         </div>
         <div class="group mb-4">
           {/* <input type="submit" className="btn btn-success" value="Ajukan Surat" /> */}
-          <button onClick={handleClick} className="btn btn-success">
-            Ajukan Surat
-          </button>
+          {loading ? (
+            <button className={`btn btn-success`} type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+          ) : (
+            <button onClick={handleClick} className="btn btn-success">
+              Ajukan Surat
+            </button>
+          )}
         </div>
       </div>
     </form>

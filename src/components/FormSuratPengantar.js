@@ -2,12 +2,14 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import styles from "../assets/css/Form.module.css";
+import axios from "axios";
 
 const FormSuratPengantar = (props) => {
   const navigate = useNavigate();
   const [alamatAyah, setAlamatAyah] = useState("");
   const [alamatIbu, setAlamatIbu] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     if (!alamatAyah) {
@@ -17,23 +19,41 @@ const FormSuratPengantar = (props) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      jenisSurat: props.surat,
-      alamatAyah,
-      alamatIbu,
+      father_address: alamatAyah,
+      mother_address: alamatIbu,
     };
-    Swal.fire({
-      icon: "success",
-      title: "Surat Berhasil Diajukan",
-      confirmButtonColor: "#198754",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/suratSaya");
-      }
-    });
-    console.log(data);
+    setLoading(true);
+    try {
+      const res = await axios.post("https://pengmas.mides.id/api/v1/generate/surat-pengantar-nikah", data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      setLoading(false);
+      Swal.fire({
+        icon: "success",
+        title: "Surat Berhasil Diajukan",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/suratSaya");
+        }
+      });
+    } catch (error) {
+      setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Terjadi Kesalahan",
+        confirmButtonColor: "#198754",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/ajukanSurat");
+        }
+      });
+    }
   };
 
   return (
@@ -70,9 +90,16 @@ const FormSuratPengantar = (props) => {
           {error === "Alamat Ibu" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat ibu anda</p>}
         </div>
         <div class="group mb-4">
-          <button onClick={handleClick} className="btn btn-success">
-            Ajukan Surat
-          </button>
+          {loading ? (
+            <button className={`btn btn-success`} type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+          ) : (
+            <button onClick={handleClick} className="btn btn-success">
+              Ajukan Surat
+            </button>
+          )}
         </div>
       </div>
     </form>
