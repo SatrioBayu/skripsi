@@ -9,6 +9,7 @@ const FormSuratPengantar = (props) => {
   const [alamatAyah, setAlamatAyah] = useState("");
   const [alamatIbu, setAlamatIbu] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     if (!alamatAyah) {
@@ -24,12 +25,14 @@ const FormSuratPengantar = (props) => {
       father_address: alamatAyah,
       mother_address: alamatIbu,
     };
+    setLoading(true);
     try {
       const res = await axios.post("https://pengmas.mides.id/api/v1/generate/surat-pengantar-nikah", data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
+      setLoading(false);
       Swal.fire({
         icon: "success",
         title: "Surat Berhasil Diajukan",
@@ -40,6 +43,7 @@ const FormSuratPengantar = (props) => {
         }
       });
     } catch (error) {
+      setLoading(false);
       Swal.fire({
         icon: "error",
         title: "Terjadi Kesalahan",
@@ -86,9 +90,16 @@ const FormSuratPengantar = (props) => {
           {error === "Alamat Ibu" && <p className={`${styles["invalid-text"]}`}>Silahkan isi alamat ibu anda</p>}
         </div>
         <div class="group mb-4">
-          <button onClick={handleClick} className="btn btn-success">
-            Ajukan Surat
-          </button>
+          {loading ? (
+            <button className={`btn btn-success`} type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+          ) : (
+            <button onClick={handleClick} className="btn btn-success">
+              Ajukan Surat
+            </button>
+          )}
         </div>
       </div>
     </form>

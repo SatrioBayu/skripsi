@@ -10,6 +10,7 @@ const FormSuratBelumMenikah = (props) => {
   const [alamatOrtu, setAlamatOrtu] = useState("");
   const [keterangan, setKeterangan] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     if (!alamat) {
@@ -26,12 +27,14 @@ const FormSuratBelumMenikah = (props) => {
       alamat_orang_tua: alamatOrtu,
       keterangan_surat: keterangan,
     };
+    setLoading(true);
     try {
       const res = await axios.post("https://pengmas.mides.id/api/v1/generate/surat-keterangan-belum-nikah", data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
+      setLoading(false);
       Swal.fire({
         icon: "success",
         title: "Surat Berhasil Diajukan",
@@ -42,6 +45,7 @@ const FormSuratBelumMenikah = (props) => {
         }
       });
     } catch (error) {
+      setLoading(false);
       Swal.fire({
         icon: "error",
         title: "Terjadi Kesalahan",
@@ -99,9 +103,16 @@ const FormSuratBelumMenikah = (props) => {
           ></textarea>
         </div>
         <div class="group mb-4">
-          <button onClick={handleClick} className="btn btn-success">
-            Ajukan Surat
-          </button>
+          {loading ? (
+            <button className={`btn btn-success`} type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+          ) : (
+            <button onClick={handleClick} className="btn btn-success">
+              Ajukan Surat
+            </button>
+          )}
         </div>
       </div>
     </form>

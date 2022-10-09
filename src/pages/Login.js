@@ -12,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [invalid, setInvalid] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     // const data = JSON.stringify({ username, password });
@@ -22,14 +23,17 @@ const Login = () => {
       email,
       password,
     };
+    setLoading(true);
     try {
       const res = await axios.post("https://pengmas.mides.id/api/v1/auth/login", body);
       const token = res.data.data.token;
       localStorage.setItem("token", token);
       setInvalid("");
       navigate("/");
+      setLoading(false);
     } catch (error) {
       setInvalid("Email atau Password Salah");
+      setLoading(false);
     }
   };
 
@@ -88,9 +92,16 @@ const Login = () => {
             />
           </div>
           {error === "Password" && <p className={`${style["invalid-text"]}`}>Password wajib diisi</p>}
-          <button onClick={handleLogin} className={`btn ${styles["btn-login"]} px-4`}>
-            Login
-          </button>
+          {loading ? (
+            <button className={`btn ${styles["btn-login"]} px-4`} type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+          ) : (
+            <button onClick={handleLogin} className={`btn ${styles["btn-login"]} px-4`}>
+              Login
+            </button>
+          )}
         </form>
       </div>
     </div>
