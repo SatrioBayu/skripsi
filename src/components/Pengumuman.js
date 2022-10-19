@@ -37,7 +37,6 @@ const Pengumuman = () => {
   const fetchData = async () => {
     const data = await (await axios.get("https://pengmas.telenurse.web.id/api/v1/pengumuman")).data.data;
     setAnnouncements(data);
-    console.log(data);
   };
 
   useEffect(() => {

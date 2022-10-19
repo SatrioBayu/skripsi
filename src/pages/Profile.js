@@ -20,7 +20,6 @@ const Profile = () => {
       });
       const data = res.data.data;
       setProfile(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
     }

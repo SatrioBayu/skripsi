@@ -4,12 +4,20 @@ import styles from "../assets/css/SuratSaya.module.css";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import Pagination from "../components/Pagination";
 
 const month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
 const SuratSaya = () => {
   const [surat, setSurat] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [pagination, setPagination] = useState("");
   const [loading, setLoading] = useState(true);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPost = surat.slice(indexOfFirstPost, indexOfLastPost);
 
   const fetchData = async () => {
     const token = localStorage.getItem("token");
@@ -33,12 +41,15 @@ const SuratSaya = () => {
         data.type = words.join(" ");
         data.created_at = gabung;
       });
+      setPagination(Math.ceil(sorted.length / 9));
       setSurat(sorted);
     } catch (error) {
       console.log(error);
     }
     setLoading(false);
   };
+
+  const changePage = (pageNumber) => setCurrentPage(pageNumber);
 
   useEffect(() => {
     fetchData();
@@ -85,7 +96,7 @@ const SuratSaya = () => {
                 </tr>
               ) : (
                 <>
-                  {surat.map((data, index) => (
+                  {currentPost.map((data, index) => (
                     <tr key={index}>
                       <td>{data.type}</td>
                       <td>{data.created_at}</td>
@@ -120,6 +131,7 @@ const SuratSaya = () => {
               </tr> */}
             </tbody>
           </table>
+          <Pagination pages={pagination} page={currentPage} changePage={changePage} />
         </div>
       </div>
       <Footer />
