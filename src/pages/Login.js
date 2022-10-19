@@ -25,7 +25,7 @@ const Login = () => {
     };
     setLoading(true);
     try {
-      const res = await axios.post("https://pengmas.mides.id/api/v1/auth/login", body);
+      const res = await axios.post("https://pengmas.telenurse.web.id/v1/auth/login", body);
       const token = res.data.data.token;
       localStorage.setItem("token", token);
       setInvalid("");

@@ -24,7 +24,7 @@ const FormSuratPersetujuanTetangga = (props) => {
     formData.append("document", fileSurat);
     setLoading(true);
     try {
-      const res = await axios.post("https://pengmas.mides.id/api/v1/generate/surat-persetujuan-tetangga", formData, {
+      const res = await axios.post("https://pengmas.telenurse.web.id/api/v1/generate/surat-persetujuan-tetangga", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

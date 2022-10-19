@@ -35,7 +35,7 @@ const Artikel = () => {
   const [artikels, setArtikels] = useState("");
 
   const fetchData = async () => {
-    const data = await (await axios.get("https://pengmas.mides.id/api/v1/berita")).data.data;
+    const data = await (await axios.get("https://pengmas.telenurse.web.id/api/v1/berita")).data.data;
     setArtikels(data);
   };
 
