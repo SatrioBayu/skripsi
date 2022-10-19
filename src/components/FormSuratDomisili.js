@@ -34,7 +34,7 @@ const FormSuratDomisili = (props) => {
     formData.append("owner_house_name", pemilikRumah);
     setLoading(true);
     try {
-      const res = await axios.post("https://pengmas.mides.id/api/v1/upload/surat-domisili", formData, {
+      const res = await axios.post("https://pengmas.telenurse.web.id/api/v1/upload/surat-domisili", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

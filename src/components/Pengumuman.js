@@ -35,7 +35,7 @@ const Pengumuman = () => {
   const [announcements, setAnnouncements] = useState("");
 
   const fetchData = async () => {
-    const data = await (await axios.get("https://pengmas.mides.id/api/v1/pengumuman")).data.data;
+    const data = await (await axios.get("https://pengmas.telenurse.web.id/api/v1/pengumuman")).data.data;
     setAnnouncements(data);
   };
 

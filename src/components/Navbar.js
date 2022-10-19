@@ -13,7 +13,7 @@ const Navbar = () => {
   const fetchData = async () => {
     const token = localStorage.getItem("token");
     // setNama(token.username);
-    const res = await axios.get("https://pengmas.mides.id/api/v1/self-information", {
+    const res = await axios.get("https://pengmas.telenurse.web.id/api/v1/self-information", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

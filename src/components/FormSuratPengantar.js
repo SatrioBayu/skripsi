@@ -27,7 +27,7 @@ const FormSuratPengantar = (props) => {
     };
     setLoading(true);
     try {
-      const res = await axios.post("https://pengmas.mides.id/api/v1/generate/surat-pengantar-nikah", data, {
+      const res = await axios.post("https://pengmas.telenurse.web.id/api/v1/generate/surat-pengantar-nikah", data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
