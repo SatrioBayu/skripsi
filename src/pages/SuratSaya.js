@@ -96,22 +96,30 @@ const SuratSaya = () => {
                 </tr>
               ) : (
                 <>
-                  {currentPost.map((data, index) => (
-                    <tr key={index}>
-                      <td>{data.type}</td>
-                      <td>{data.created_at}</td>
-                      {data.status === "DISETUJUI" && (
-                        <td className="text-center">
-                          <a className={`${styles["link"]}`} href={data.file_link} target="_blank" download={data.title}>
-                            Disetujui
-                          </a>
-                        </td>
-                      )}
-                      {data.status === "PROSES" && <td className="text-center">Dalam Proses</td>}
-                      {data.status === "DITOLAK" && <td className={`text-center ${styles.rejected}`}>Ditolak</td>}
-                      <td className={`${styles.small}`}>{data.reject_reason}</td>
+                  {currentPost &&
+                    currentPost.map((data, index) => (
+                      <tr key={index}>
+                        <td>{data.type}</td>
+                        <td>{data.created_at}</td>
+                        {data.status === "DISETUJUI" && (
+                          <td className="text-center">
+                            <a className={`${styles["link"]}`} href={data.file_link} target="_blank" download={data.title}>
+                              Disetujui
+                            </a>
+                          </td>
+                        )}
+                        {data.status === "PROSES" && <td className="text-center">Dalam Proses</td>}
+                        {data.status === "DITOLAK" && <td className={`text-center ${styles.rejected}`}>Ditolak</td>}
+                        <td className={`${styles.small}`}>{data.reject_reason}</td>
+                      </tr>
+                    ))}
+                  {!currentPost && (
+                    <tr>
+                      <td className="text-center fs-4" colSpan={4}>
+                        Data tidak ditemukan
+                      </td>
                     </tr>
-                  ))}
+                  )}
                 </>
               )}
 

@@ -13,7 +13,6 @@ const Peraturan = () => {
       <Navbar />
       <div class="container mt-5">
         <ArrowBack handleBack={handleBack} />
-
         <div id="peraturan" className="mb-5">
           <h2 className="text-center my-5">Peraturan RT 04 RW 12 Kelurahan Tulusrejo</h2>
           <ol className={`${styles["no-padding"]}`}>
@@ -50,7 +49,7 @@ const Peraturan = () => {
               <p className="fs-6">Rumah adalah setiap bangunan hunian dan non hunian yang berada di lingkungan RT 004, yang meliputi bangunan utama dan/atau bangunan penunjang</p>
             </li>
           </ol>
-          <a href="/PERATURAN WARGA LINGKUNGAN.pdf" className={`${styles["link"]}`} target="_blank" download>
+          <a href="/PERATURAN.pdf" className={`${styles["link"]}`} target="_blank" download>
             Baca Selengkapnya
           </a>
         </div>
